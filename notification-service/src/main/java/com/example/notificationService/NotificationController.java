@@ -1,5 +1,6 @@
 package com.example.notificationService;
 
+import com.example.notificationService.notificationClasses.EmailNotification;
 import com.example.notificationService.notificationClasses.INotification;
 import com.example.notificationService.notificationClasses.SMSNotification;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ public class NotificationController {
     }
     @PostMapping(value = "/email")
     public String sendEmail(){
+        context.getBean(EmailNotification.class).send();
         return "sendingEmail";
     }
 }
